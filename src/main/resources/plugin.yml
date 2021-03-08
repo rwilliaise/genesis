@@ -1,0 +1,10 @@
+name: Genesis
+version: ${project.version}
+main: com.alotofletters.genesis.Genesis
+api-version: 1.16
+prefix: GENESIS
+authors: [ ALotOfLetters ]
+description: Connect your server to a bot!
+commands:
+  setup:
+    usage: "Usage: /setup <setup code from discord>"

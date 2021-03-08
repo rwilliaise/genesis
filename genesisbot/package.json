@@ -1,0 +1,24 @@
+{
+  "name": "genesisbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node index.js",
+    "prestart": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/ws": "^7.4.0",
+    "typescript": "^4.2.2"
+  },
+  "dependencies": {
+    "discord-slash-commands-client": "^1.1.1",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "ws": "^7.4.3"
+  }
+}
