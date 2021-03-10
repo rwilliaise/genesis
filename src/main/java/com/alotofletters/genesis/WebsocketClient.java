@@ -40,11 +40,13 @@ public class WebsocketClient {
 	}
 
 	public void sendMessage(Player player, String message) {
-		if (this.currentSession == null) {
-			return;
-		}
 		MessagePlayer messagePlayer = new MessagePlayer(player);
-		this.currentSession.getAsyncRemote().sendText(GSON.toJson(new Message(messagePlayer, message))); // agh wtf
+		System.out.println("Sending message with content: " + message);
+		try {
+			this.currentSession.getBasicRemote().sendText(GSON.toJson(new Message(messagePlayer, message))); // agh wtf
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -53,7 +55,12 @@ public class WebsocketClient {
 	 */
 	public void sendSetup(String code) {
 		SetupMessage message = new SetupMessage(code);
-		this.currentSession.getAsyncRemote().sendText(GSON.toJson(message));
+		System.out.println("Sending setup message with code: " + code);
+		try {
+			this.currentSession.getBasicRemote().sendText(GSON.toJson(message));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
 

@@ -19,12 +19,20 @@ public final class Genesis extends JavaPlugin implements Listener {
 
 	@Override
 	public void onEnable() {
+		ClassLoader originalClassLoader = Thread.currentThread().getContextClassLoader();
+
+		// this hack is so bad, god damn ada lovelace is rolling in her grave
+		// TODO: dont
 		try {
-			client = new WebsocketClient(new URI("ws://localhost:8080"));
+			Thread.currentThread().setContextClassLoader(Genesis.class.getClassLoader());
+			client = new WebsocketClient(new URI("ws://127.0.0.1:8080"));
 		} catch (IOException | DeploymentException | URISyntaxException e) {
 			e.printStackTrace();
+		} finally {
+			Thread.currentThread().setContextClassLoader(originalClassLoader);
 		}
 		this.getCommand("setup").setExecutor(new CommandSetup(this.client));
+		this.getServer().getPluginManager().registerEvents(this, this);
 	}
 
 	@EventHandler

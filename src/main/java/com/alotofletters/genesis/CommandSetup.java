@@ -20,9 +20,11 @@ public class CommandSetup implements CommandExecutor {
 			sender.sendMessage("Contact your server admin to set this up for you.");
 			return false;
 		}
+		System.out.println("Break");
 		if (args.length != 1) {
 			return false;
 		}
+		System.out.println("Breakest");
 		client.sendSetup(args[0]);
 		return true;
 	}

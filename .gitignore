@@ -116,3 +116,6 @@ run/
 /genesisbot/node_modules/
 /genesisbot/index.js
 /genesisbot/.env
+/server/
+/genesisbot/server.json
+/mv_plugin.sh
