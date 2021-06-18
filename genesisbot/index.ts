@@ -77,7 +77,7 @@ server.on("connection", (socket, req) => {
       const webhookClient = new Discord.WebhookClient(webhook.id, webhook.token);
       webhookClient.send(data.content, {
           username: data.player?.name,
-          avatarURL: `https://minotar.net/cube/${data.player?.uuid}/300.png` // TODO: config for this
+          avatarURL: `https://www.mc-heads.net/head/${data.player?.uuid}` // TODO: config for this
         })
         .catch(console.error)
       webhookClient.destroy();
